@@ -34,7 +34,28 @@
 									<header class="main">
 										<h1>Projects</h1>
 									</header>
-										<p>Read our <a href="/PDFs/Group_Project_Report.pdf">report</a> or see our <a href="https://github.com/ajonw/group-project">GitHub page</a>.</p>
+
+									<h2>Merging packets using Kernel-Bypass Frameworks</h2>
+										<p><a href="/PDFs/Group_Project_Report.pdf">Report link</a> and <a href="https://github.com/ajonw/group-project">GitHub page</a></p>
+
+										<h3>Background</h3>
+										<p>Caching systems store responses to frequently-made requests from users within main memory [1].
+											This reduces expensive resource usage (e.g., backend databases), which lowers latency [2]. Many popular
+											web applications, such as Facebook and Wikipedia, use Memcached, a key-value store-based caching
+											system termed “the gold standard of web caching” [3]. Despite its popularity, Memcached suffers from
+											well-documented performance limitations. Notably, when Memcached is run on vanilla operating systems,
+											packets are processed by these operating systems’ network stacks, and significant delays are incurred due to
+											system calls [4]. As the number of system calls made increases with the number of packets received [5],
+											aggregating requests into fewer packets of greater size will reduce these delays, improving performance.
+										</p>
+										<p>However, if request aggregation involves the kernel when processing packets, this overhead is not
+											absorbed, only transferred. Kernel-bypassing frameworks, such as the Data Plane Development Kit (DPDK)
+											[6], overcome this by manipulating packets entirely within userspace. Yet, modifying existing applications
+											to use these frameworks may be costly, as the application must now implement and attain high performance
+											on a dedicated network stack [2]. We therefore implement a software middlebox on top of DPDK, which
+											absorbs the packet-processing overhead without requiring the modification of deployed applications.
+										</p>
+
 
 										<div class="row gtr-200">
 											<div class="col-6 col-12-medium">
