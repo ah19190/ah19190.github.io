@@ -228,6 +228,11 @@ hr {
 .align-right {
   text-align: right; }
 
+figcaption {
+  font-size: 0.8em;
+  margin-top: 0.5em;
+  text-align: left; }
+
 /* Row */
 .row {
   display: flex;
@@ -1243,6 +1248,7 @@ input[type="radio"] + label:before {
     width: 100%; }
     .image.main img {
       width: 100%; }
+
 
 a.image {
   overflow: hidden; }
